@@ -13,14 +13,14 @@ namespace debtManager
 {
     public class AddDebtViewModel : BindableBase
     {
-        public AddDebtViewModel(debt newDebt)
+        public AddDebtViewModel(Debt newDebt)
         {
-            currentDebt = newDebt;
+            CurrentDebt = newDebt;
         }
 
-        debt currentDebt;
+        Debt currentDebt;
 
-        public debt CurrentDebt
+        public Debt CurrentDebt
         {
             get { return currentDebt; }
             set
@@ -41,6 +41,8 @@ namespace debtManager
             return isValid;
         }
         #endregion
+
+
         #region Commands
 
         ICommand _saveCommand;

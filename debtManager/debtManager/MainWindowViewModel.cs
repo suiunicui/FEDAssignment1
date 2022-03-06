@@ -12,23 +12,23 @@ namespace debtManager
 {
     public class MainWindowViewModel : BindableBase
     {
-        ObservableCollection<debt> debts;
+        ObservableCollection<Debt> debts;
 
         public MainWindowViewModel()
         {
-            debts = new ObservableCollection<debt>();
-            debts.Add(new debt(-1000, "Alice"));
-            debts.Add(new debt(5000, "Bob"));
+            debts = new ObservableCollection<Debt>();
+            debts.Add(new Debt(-1000, "Alice"));
+            debts.Add(new Debt(5000, "Bob"));
             CurrentDebt = debts[0];
 
         }
 
         #region Properties
 
-        debt currentDebt = new debt();
+        Debt currentDebt = new Debt();
 
-        private debt _currentDebt;
-        public debt CurrentDebt
+        private Debt _currentDebt;
+        public Debt CurrentDebt
         {
             get { return _currentDebt; }
             set { SetProperty(ref _currentDebt, value); }
@@ -43,7 +43,7 @@ namespace debtManager
             set { SetProperty(ref _currentIndex, value); }
         }
 
-        public ObservableCollection<debt> Debts
+        public ObservableCollection<Debt> Debts
         {
             get
             {
@@ -56,7 +56,7 @@ namespace debtManager
 
         public void AddNewDebt()
         {
-            debts.Add(new debt());
+            debts.Add(new Debt());
         }
 
         #endregion
@@ -99,14 +99,13 @@ namespace debtManager
 
         private DelegateCommand? _addDebtCommand;
         public DelegateCommand AddDebtCommand => 
-            _addDebtCommand ?? (_addDebtCommand = new DelegateCommand(ExecuteAddDebtCommand)
-            .ObservesProperty(() => CurrentIndex));
+            _addDebtCommand ?? (_addDebtCommand = new DelegateCommand(ExecuteAddDebtCommand));
   
         void ExecuteAddDebtCommand()
         {
-            var newDebt = new debt();
+            var newDebt = new Debt();
             var VM = new AddDebtViewModel(newDebt);
-            AddDebt win2 = new AddDebt
+            var win2 = new AddDebt
             {
                 DataContext = VM
             };

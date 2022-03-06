@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QqbAQKzfpuYP5JgaPfbPM/qEkMTruDJqw+Th5+ONiyGWyeCNNZyVETjUAbnoIMYbn6OQlf5G7yqurRUkGIm72w==",
+  "dgSpecHash": "Lf8ZbsPW0hC7/8QJqPAxEHIYuSyyrAmtV1DzsFtwAvrR62Vr5LqcxRDV+jzkh3YySJfPV3droYrFX31P37S/yQ==",
   "success": true,
-  "projectFilePath": "D:\\Sune\\Documents\\UNI\\FED\\debtManager\\debtManager\\debtManager.csproj",
+  "projectFilePath": "D:\\Sune\\Documents\\UNI\\FED\\FEDAssignment1\\debtManager\\debtManager\\debtManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sune\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
     "C:\\Users\\Sune\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",

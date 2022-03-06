@@ -7,22 +7,22 @@ using System.Collections.ObjectModel;
 
 namespace debtManager
 {
-    public class debt : BindableBase
+    public class Debt : BindableBase
     {
         int amount;
         string debtor;
-        List<debit> debitList;
+        List<Debit> debitList;
 
-        public debt()
+        public Debt()
         {
         }
 
-        public debt(int damount, string ddebtor)
+        public Debt(int damount, string ddebtor)
         {
             amount = damount;
             debtor = ddebtor;
-            debitList = new List<debit>();
-            debitList.Add(new debit("Today", Amount));
+            debitList = new List<Debit>();
+            debitList.Add(new Debit("Today", Amount));
         }
 
         public int Amount
@@ -33,7 +33,7 @@ namespace debtManager
             }
             set
             {
-                amount = value;
+                SetProperty(ref amount, value);
             }
         }
 
@@ -45,22 +45,24 @@ namespace debtManager
             }
             set
             {
-                debtor = value;
+                SetProperty(ref debtor, value); 
             }
         }
 
     }
 
-    public class debit : BindableBase
+    public class Debit : BindableBase
     {
-        string date;
-        int payment;
+        
+      
 
-        public debit(string ddate, int dpayment)
+        public Debit(string ddate, int dpayment)
         {
             Date = ddate;
             Payment = dpayment;
         }
+        
+        string date;
         public string Date
         {
             get
@@ -72,7 +74,8 @@ namespace debtManager
                 date = value;
             }
         }
-
+        
+        int payment;
         public int Payment
         {
             get

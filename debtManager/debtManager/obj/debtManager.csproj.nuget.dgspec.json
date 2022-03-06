@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Sune\\Documents\\UNI\\FED\\debtManager\\debtManager\\debtManager.csproj": {}
+    "D:\\Sune\\Documents\\UNI\\FED\\FEDAssignment1\\debtManager\\debtManager\\debtManager.csproj": {}
   },
   "projects": {
-    "D:\\Sune\\Documents\\UNI\\FED\\debtManager\\debtManager\\debtManager.csproj": {
+    "D:\\Sune\\Documents\\UNI\\FED\\FEDAssignment1\\debtManager\\debtManager\\debtManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sune\\Documents\\UNI\\FED\\debtManager\\debtManager\\debtManager.csproj",
+        "projectUniqueName": "D:\\Sune\\Documents\\UNI\\FED\\FEDAssignment1\\debtManager\\debtManager\\debtManager.csproj",
         "projectName": "debtManager",
-        "projectPath": "D:\\Sune\\Documents\\UNI\\FED\\debtManager\\debtManager\\debtManager.csproj",
+        "projectPath": "D:\\Sune\\Documents\\UNI\\FED\\FEDAssignment1\\debtManager\\debtManager\\debtManager.csproj",
         "packagesPath": "C:\\Users\\Sune\\.nuget\\packages\\",
-        "outputPath": "D:\\Sune\\Documents\\UNI\\FED\\debtManager\\debtManager\\obj\\",
+        "outputPath": "D:\\Sune\\Documents\\UNI\\FED\\FEDAssignment1\\debtManager\\debtManager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
