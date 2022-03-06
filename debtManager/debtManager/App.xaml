@@ -1,0 +1,13 @@
+﻿<Application x:Class="debtManager.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:debtManager"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="backgroundColor" Color="White" />
+        <SolidColorBrush x:Key="toolBarColor" Color="AliceBlue" />
+        <Style x:Key="TitleStyle">
+            <Setter Property="Control.FontSize" Value="20pt"/>
+        </Style>
+    </Application.Resources>
+</Application>

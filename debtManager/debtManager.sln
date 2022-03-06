@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "debtManager", "debtManager\debtManager.csproj", "{77E13F83-0D50-4371-8D50-3469580DA315}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77E13F83-0D50-4371-8D50-3469580DA315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E13F83-0D50-4371-8D50-3469580DA315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E13F83-0D50-4371-8D50-3469580DA315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E13F83-0D50-4371-8D50-3469580DA315}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8D5C605-2837-41DD-8321-39E9FE19CAF7}
+	EndGlobalSection
+EndGlobal
