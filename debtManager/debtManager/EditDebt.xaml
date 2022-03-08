@@ -1,0 +1,46 @@
+﻿<Window x:Class="debtManager.EditDebt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:debtManager"
+        mc:Ignorable="d"
+        Title="EditDebt" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name="DebitListBox"
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Margin = "50 20"
+                  ItemsSource="{Binding Path = CurrentDebt.DebitList}"
+                  IsSynchronizedWithCurrentItem="True"
+                  IsReadOnly="True">
+        </DataGrid>
+        <TextBox x:Name = "PaymentValue"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Margin="50 0 50 200"
+                   Width="100"
+                   Text="{Binding Path = NewDebitPayment.Payment}"
+                   Height="30"/>
+        <Button x:Name="AddValue"
+                Grid.Column="1"
+                Grid.Row="0"
+                Content = "Add Value"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Margin = "50 60 50 200 "
+                ClickMode="Release"
+                Command="{Binding Path = AddValueCommand}"
+                Click="btn_addValue"/>
+    </Grid>
+</Window>

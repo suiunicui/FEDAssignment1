@@ -15,6 +15,8 @@ namespace debtManager
 
         public Debt()
         {
+            debitList = new List<Debit>();
+            debitList.Add(new Debit(DateTime.Today.ToString("d"), Amount));
         }
 
         public Debt(int damount, string ddebtor)
@@ -22,7 +24,7 @@ namespace debtManager
             amount = damount;
             debtor = ddebtor;
             debitList = new List<Debit>();
-            debitList.Add(new Debit("Today", Amount));
+            debitList.Add(new Debit(DateTime.Today.ToString("d"), Amount));
         }
 
         public int Amount
@@ -49,17 +51,29 @@ namespace debtManager
             }
         }
 
+        public List<Debit> DebitList
+        {
+            get { return debitList; }
+            set { SetProperty(ref debitList, value); }
+        }
+
+        public void AddDebit(Debit newDebit)
+        {
+            debitList.Add(newDebit);
+        }
+
     }
 
     public class Debit : BindableBase
     {
-        
-      
-
+        public Debit(string ddate)
+        {
+            date = ddate;
+        }
         public Debit(string ddate, int dpayment)
         {
-            Date = ddate;
-            Payment = dpayment;
+            date = ddate;
+            payment = -dpayment;
         }
         
         string date;
@@ -71,7 +85,7 @@ namespace debtManager
             }
             set
             {
-                date = value;
+                SetProperty(ref date, value);
             }
         }
         
@@ -84,7 +98,7 @@ namespace debtManager
             }
             set
             {
-                payment = value;
+                SetProperty(ref payment, value);
             }
         }
 

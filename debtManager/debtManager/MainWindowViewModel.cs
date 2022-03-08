@@ -4,9 +4,12 @@ using System.Runtime.CompilerServices;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
+using System.Net.Mime;
 using System.Windows.Media;
 using System.Windows.Threading;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace debtManager
 {
@@ -57,6 +60,11 @@ namespace debtManager
         public void AddNewDebt()
         {
             debts.Add(new Debt());
+        }
+
+        public bool isValueNegative
+        {
+            get { return (CurrentDebt.Amount < 0);  }
         }
 
         #endregion
@@ -150,20 +158,33 @@ namespace debtManager
             App.Current.MainWindow.Close();
         }
 
-        private DelegateCommand<string> _changeColorCommand;
-        public DelegateCommand<string> ChangeColorCommand =>
-            _changeColorCommand ?? (_changeColorCommand = new DelegateCommand<string>(ExecuteChangeColorCommand));
+        private DelegateCommand? _editCommand;
 
-
-        void ExecuteChangeColorCommand(string colorStr)
+        public DelegateCommand EditCommand =>
+            _editCommand ?? (_editCommand = new DelegateCommand(ExecuteEditCommand));
+        
+        void ExecuteEditCommand()
         {
-            SolidColorBrush newBrush = SystemColors.WindowBrush;
-            if (colorStr != null)
-                if (colorStr != "Default")
-                    newBrush = new SolidColorBrush(
-                    (Color)ColorConverter.ConvertFromString(colorStr));
-            Application.Current.Resources["backgroundColor"] = newBrush;
+            var DebitPayment = new Debit(DateTime.Today.ToString("d"), 0);
+            var VM = new EditDebtViewModel(CurrentDebt, DebitPayment);
+            var win2 = new EditDebt 
+            {
+                DataContext = VM
+            };
+            
+            if (win2.ShowDialog() == true)
+            {
+                CurrentDebt.AddDebit(DebitPayment);
+            }
         }
+        bool CanExecuteEditCommand()
+        {
+            if (CurrentIndex > 0)
+                return true;
+            else
+                return false;
+        }
+
 
         #endregion
 

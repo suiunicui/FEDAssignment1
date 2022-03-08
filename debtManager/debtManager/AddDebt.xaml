@@ -40,8 +40,8 @@
         <Button x:Name="saveDebtor"
                 Content="Save" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="1" Margin="10,10,10,10" 
                 Command="{Binding Path=SaveCommand}" Click="btnSave_Click"/>
-        <Button x:Name="cancleAdd"
-                Content="Cancle" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="1" Margin="10,10,10,10" IsCancel="True"/>
+        <Button x:Name="cancelAdd"
+                Content="Cancel" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="1" Margin="10,10,10,10" IsCancel="True"/>
 
     </Grid>
 </Window>
