@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wX00GTdnI1kfMcaJYWgwsrZzo10mm1xEAe7vhsc/y6Tsggw2GkqUeTpVG8k8tqWpyrzNcnI/L9r5nRxLFXgJQw==",
+  "dgSpecHash": "Lf8ZbsPW0hC7/8QJqPAxEHIYuSyyrAmtV1DzsFtwAvrR62Vr5LqcxRDV+jzkh3YySJfPV3droYrFX31P37S/yQ==",
   "success": true,
-  "projectFilePath": "\\\\wsl.localhost\\Ubuntu\\home\\morten\\Documents\\University\\Front-End-Development\\FEDAssignment1\\debtManager\\debtManager\\debtManager.csproj",
+  "projectFilePath": "D:\\Sune\\Documents\\UNI\\FED\\FEDAssignment1\\debtManager\\debtManager\\debtManager.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\UniquesKernel\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
-    "C:\\Users\\UniquesKernel\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
-    "C:\\Users\\UniquesKernel\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512"
+    "C:\\Users\\Sune\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+    "C:\\Users\\Sune\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
+    "C:\\Users\\Sune\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512"
   ],
   "logs": []
 }

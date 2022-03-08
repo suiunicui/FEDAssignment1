@@ -5,42 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:debtManager"
         mc:Ignorable="d"
-        Title="EditDebt" Height="450" Width="800">
+        Title="EditDebt" Height="450" Width="600">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
         <DataGrid Name="DebitListBox"
-                  Grid.Row="0"
+                  Grid.Row="1"
                   Grid.Column="0"
-                  Margin = "50 20"
+                  Margin = "50,10,50,20"
                   ItemsSource="{Binding Path = CurrentDebt.DebitList}"
                   IsSynchronizedWithCurrentItem="True"
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="1*"/>
+                <DataGridTextColumn Header="Payment" Binding="{Binding Payment}" Width="1*"/>
+            </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name = "PaymentValue"
-                   Grid.Column="1"
-                   Grid.Row="0"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Left"
-                   Margin="50 0 50 200"
-                   Width="100"
-                   Text="{Binding Path = NewDebitPayment.Payment}"
-                   Height="30"/>
+                Grid.Column="1"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Margin="10,10,0,0"
+                Width="175"
+                Text="{Binding Path = NewDebitPayment.Payment}"
+                Height="31"
+                FontSize="20" />
         <Button x:Name="AddValue"
                 Grid.Column="1"
-                Grid.Row="0"
+                Grid.Row="1"
                 Content = "Add Value"
-                VerticalAlignment="Center"
+                VerticalAlignment="Top"
                 HorizontalAlignment="Left"
-                Margin = "50 60 50 200 "
+                Margin = "10,68,0,0"
                 ClickMode="Release"
                 Command="{Binding Path = AddValueCommand}"
-                Click="btn_addValue"/>
+                Click="btn_addValue" Width="175" Height="50"/>
+        <TextBlock Text="Payment history" Grid.Row="0" Style="{StaticResource TitleStyle}" VerticalAlignment="Top" Margin="50,20,60,347" Grid.RowSpan="2"/>
+        <TextBlock Text="Add payment" Grid.Column="1" Grid.Row="0" Style="{StaticResource TitleStyle}" VerticalAlignment="Top" Margin="10,20,60,347" Grid.RowSpan="2"/>
     </Grid>
 </Window>

@@ -9,14 +9,13 @@ namespace debtManager
 {
     public class Debt : BindableBase
     {
-        int amount;
+        Int32 amount;
         string debtor;
         List<Debit> debitList;
 
         public Debt()
         {
             debitList = new List<Debit>();
-            debitList.Add(new Debit(DateTime.Today.ToString("d"), Amount));
         }
 
         public Debt(int damount, string ddebtor)
@@ -62,13 +61,24 @@ namespace debtManager
             debitList.Add(newDebit);
         }
 
+        public override string ToString()
+        {
+            string theString = amount + "," + debtor;
+
+            foreach(Debit debit in debitList)
+            {
+                theString += debit.ToString();
+            }
+            theString += ";";
+            return theString;
+        }
+
     }
 
     public class Debit : BindableBase
     {
-        public Debit(string ddate)
+        public Debit()
         {
-            date = ddate;
         }
         public Debit(string ddate, int dpayment)
         {
@@ -101,6 +111,10 @@ namespace debtManager
                 SetProperty(ref payment, value);
             }
         }
-
+        public override string ToString()
+        {
+            string dstring = "," + date + "," + payment.ToString();
+            return dstring;
+        }
     }
 }

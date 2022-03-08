@@ -10,12 +10,13 @@ using System.Windows.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.IO;
+using Microsoft.Win32;
 
 namespace debtManager
 {
     public class MainWindowViewModel : BindableBase
     {
-        ObservableCollection<Debt> debts;
 
         public MainWindowViewModel()
         {
@@ -28,86 +29,52 @@ namespace debtManager
 
         #region Properties
 
-        Debt currentDebt = new Debt();
+       // Debt currentDebt ;
 
-        private Debt _currentDebt;
+        private Debt currentDebt= new Debt();
         public Debt CurrentDebt
         {
-            get { return _currentDebt; }
-            set { SetProperty(ref _currentDebt, value); }
+            get { return currentDebt; }
+            set { SetProperty(ref currentDebt, value); }
 
         }
 
-        private int _currentIndex;
-
+        private int currentIndex;
         public int CurrentIndex
         {
-            get { return _currentIndex; }
-            set { SetProperty(ref _currentIndex, value); }
+            get { return currentIndex; }
+            set { SetProperty(ref currentIndex, value); }
         }
 
+        private string filename = "";
+        public string Filename
+        {
+            get { return filename; }
+            set
+            {
+                SetProperty(ref filename, value);
+            }
+        }
+
+        ObservableCollection<Debt> debts;
         public ObservableCollection<Debt> Debts
         {
             get
             {
                 return debts;
             }
+            set
+            {
+                SetProperty(ref debts, value);
+            }
         }
-        #endregion
-        
-        #region Methods
-
-        public void AddNewDebt()
-        {
-            debts.Add(new Debt());
-        }
-
-        public bool isValueNegative
-        {
-            get { return (CurrentDebt.Amount < 0);  }
-        }
-
         #endregion
 
         #region Commands
 
-        private DelegateCommand? _previousCommand;
-        public DelegateCommand PreviousCommand =>
-        _previousCommand ?? (_previousCommand = new DelegateCommand(ExecutePreviousCommand, CanExecutePreviousCommand)
-        .ObservesProperty(() => CurrentIndex));
-        void ExecutePreviousCommand()
-        {
-            if (CurrentIndex > 0)
-                --CurrentIndex;
-        }
-        bool CanExecutePreviousCommand()
-        {
-            if (CurrentIndex > 0)
-                return true;
-            else
-                return false;
-        }
-
-        private DelegateCommand? _nextCommand;
-        public DelegateCommand NextCommand =>
-        _nextCommand ?? (_nextCommand = new DelegateCommand(ExecuteNextCommand, CanExecuteNextCommand)
-        .ObservesProperty(() => CurrentIndex));
-        void ExecuteNextCommand()
-        {
-            if (CurrentIndex < Debts.Count-1)
-                ++CurrentIndex;
-        }
-        bool CanExecuteNextCommand()
-        {
-            if (CurrentIndex < Debts.Count-1)
-                return true;
-            else
-                return false;
-        }
-
-        private DelegateCommand? _addDebtCommand;
+        private DelegateCommand? addDebtCommand;
         public DelegateCommand AddDebtCommand => 
-            _addDebtCommand ?? (_addDebtCommand = new DelegateCommand(ExecuteAddDebtCommand));
+            addDebtCommand ?? (addDebtCommand = new DelegateCommand(ExecuteAddDebtCommand));
   
         void ExecuteAddDebtCommand()
         {
@@ -119,14 +86,16 @@ namespace debtManager
             };
             if (win2.ShowDialog() == true) 
             {
+                newDebt.AddDebit(new Debit(DateTime.Today.ToString("d"), newDebt.Amount));
                 Debts.Add(newDebt);
+
                 CurrentIndex = Debts.Count-1;
             }
         }
 
-        private DelegateCommand? _deleteDebtCommand;
+        private DelegateCommand? deleteDebtCommand;
         public DelegateCommand DeleteDebtCommand =>
-            _deleteDebtCommand ?? (_deleteDebtCommand = new DelegateCommand(ExecuteDeleteDebtCommand, CanExecuteDeleteDebtCommand)
+            deleteDebtCommand ?? (deleteDebtCommand = new DelegateCommand(ExecuteDeleteDebtCommand, CanExecuteDeleteDebtCommand)
             .ObservesProperty(() => CurrentIndex));
 
         void ExecuteDeleteDebtCommand()
@@ -148,9 +117,9 @@ namespace debtManager
             }
         }
 
-        private DelegateCommand? _exitCommand;
+        private DelegateCommand? exitCommand;
         public DelegateCommand ExitCommand =>
-            _exitCommand ?? (_exitCommand = new DelegateCommand(ExecuteExitCommand)
+            exitCommand ?? (exitCommand = new DelegateCommand(ExecuteExitCommand)
             .ObservesProperty(() => CurrentIndex));
 
         void ExecuteExitCommand()
@@ -158,10 +127,10 @@ namespace debtManager
             App.Current.MainWindow.Close();
         }
 
-        private DelegateCommand? _editCommand;
+        private DelegateCommand? editCommand;
 
         public DelegateCommand EditCommand =>
-            _editCommand ?? (_editCommand = new DelegateCommand(ExecuteEditCommand));
+            editCommand ?? (editCommand = new DelegateCommand(ExecuteEditCommand));
         
         void ExecuteEditCommand()
         {
@@ -177,18 +146,54 @@ namespace debtManager
                 CurrentDebt.AddDebit(DebitPayment);
             }
         }
-        bool CanExecuteEditCommand()
+
+
+        private DelegateCommand? saveFileCommand;
+
+        public DelegateCommand SaveFileCommand =>
+            saveFileCommand ?? (saveFileCommand = new DelegateCommand(ExecuteSaveFileCommand));
+
+        void ExecuteSaveFileCommand()
         {
-            if (CurrentIndex > 0)
-                return true;
-            else
-                return false;
+            var dialog = new SaveFileDialog
+            {
+                Filter = "Debt documents|*.gd|All Files|*.*",
+                DefaultExt = "gd"
+            };
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            if (dialog.ShowDialog(App.Current.MainWindow) == true)
+            {
+                string filePath = dialog.FileName;
+                
+                FileManager.SaveFile(filePath, Debts);
+            }
         }
 
+        private DelegateCommand? loadFileCommand;
 
+        public DelegateCommand LoadFileCommand =>
+            loadFileCommand ?? (loadFileCommand = new DelegateCommand(ExecuteLoadFileCommand));
+
+        void ExecuteLoadFileCommand()
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = "Debt documents|*.gd|All Files|*.*",
+                DefaultExt = "gd"
+            };
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            if (dialog.ShowDialog(App.Current.MainWindow) == true)
+            {
+                string filePath = dialog.FileName;
+
+                Debts = FileManager.LoadFile(filePath);
+            }
+        }
         #endregion
 
-     
+
     }
 }
         

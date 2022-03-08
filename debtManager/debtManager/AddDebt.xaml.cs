@@ -28,8 +28,6 @@ namespace debtManager
             var vm = DataContext as AddDebtViewModel;
             if (vm.checkEntry())
                 DialogResult = true;
-            else
-                MessageBox.Show("Enter debtor name and debt amount", "Missing data");
         }
 
     }

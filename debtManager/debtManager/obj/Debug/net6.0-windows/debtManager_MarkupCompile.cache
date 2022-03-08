@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-\\wsl.localhost\Ubuntu\home\morten\Documents\University\Front-End-Development\FEDAssignment1\debtManager\debtManager\obj\Debug\net6.0-windows\
+D:\Sune\Documents\UNI\FED\FEDAssignment1\debtManager\debtManager\obj\Debug\net6.0-windows\
 debtManager
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-\\wsl.localhost\Ubuntu\home\morten\Documents\University\Front-End-Development\FEDAssignment1\debtManager\debtManager\App.xaml
+D:\Sune\Documents\UNI\FED\FEDAssignment1\debtManager\debtManager\App.xaml
 3-1911887464
 
-91591331808
-197-1040910941
+10842173582
+197-1648933152
 AddDebt.xaml;EditDebt.xaml;MainWindow.xaml;
 
 False

@@ -8,7 +8,9 @@
         mc:Ignorable="d"
         Title="DebtBook" Height="450" Width="800"
         xmlns:prism="http://prismlibrary.com/"
-        prism:ViewModelLocator.AutoWireViewModel="True">
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        ResizeMode="NoResize"
+        Icon="trayIcon.png">
     <Window.Resources>
         <Style x:Key="labelStyle">
             <Setter Property="Control.FontSize" Value="8pt"/>
@@ -19,14 +21,14 @@
             <Setter Property="Control.Foreground" Value="White"/>
         </Style>
     </Window.Resources>
-    <DockPanel>
+    <DockPanel Background="{StaticResource backgroundColor}">
         <Menu DockPanel.Dock="Top" Name="menu">
             <MenuItem Header="File">
+                <MenuItem Header="Load File"  Command="{Binding  LoadFileCommand}"/>
+                <MenuItem Header="Save To File"  Command="{Binding  SaveFileCommand}"/>
                 <MenuItem Header="Exit"  Command="{Binding  ExitCommand}"/>
             </MenuItem>
             <MenuItem Header="Debt">
-                <MenuItem Header="Next" Command="{Binding NextCommand}"/>
-                <MenuItem Header="Previous" Command="{Binding PreviousCommand}"/>
                 <MenuItem Header="Add" Command="{Binding AddDebtCommand}"/>
                 <MenuItem Header="Delete" Command="{Binding DeleteDebtCommand}"/>
             </MenuItem>
@@ -38,10 +40,11 @@
             <StatusBarItem Name="sbiDateTime" HorizontalAlignment="Right">
             </StatusBarItem>
         </StatusBar>
-        <Grid Background="{DynamicResource backgroundColor}">
+        <Grid Background="{StaticResource backgroundColor}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60*"/>
-                <RowDefinition Height="137*"/>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="270*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -52,16 +55,22 @@
                 SelectedItem="{Binding Path=CurrentDebt}"
                 SelectedIndex="{Binding Path=CurrentIndex}"
                 IsSynchronizedWithCurrentItem="True" 
-                DisplayMemberPath="debtor"
                 IsReadOnly="True"
-                Grid.Row="0" Grid.Column="0" Margin="50,30,60,100" Grid.RowSpan="2">
+                Grid.Row="1" Grid.Column="0" Margin="50,10,60,100" Grid.RowSpan="2"
+                AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="1*"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Debtor}" Width="2*"/>
+                </DataGrid.Columns>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
                         <prism:InvokeCommandAction Command="{Binding EditCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </DataGrid>
-            <Button Grid.Column="1" Grid.Row="0" Content="Add Debt" Margin="100, 50,100, 10" Command="{Binding AddDebtCommand}"/>
+            <Button Grid.Column="1" Grid.Row="1" Content="Add Debt" Margin="100,10,100,0" Command="{Binding AddDebtCommand}"/>
+            <TextBlock Text="Debtors" Style="{StaticResource TitleStyle}" Margin="50, 10, 60, 0"/>
+
 
         </Grid>
 

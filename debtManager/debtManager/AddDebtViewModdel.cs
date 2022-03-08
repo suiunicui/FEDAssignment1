@@ -59,7 +59,7 @@ namespace debtManager
        
         void ExecuteSaveCommand()
         {
-
+            //included to placate SaveCommand
         }
         bool CanExecuteSaveCommand()
         {

@@ -127,23 +127,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\UniquesKernel\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Sune\\.nuget\\packages\\": {},
+    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "\\\\wsl.localhost\\Ubuntu\\home\\morten\\Documents\\University\\Front-End-Development\\FEDAssignment1\\debtManager\\debtManager\\debtManager.csproj",
+      "projectUniqueName": "D:\\Sune\\Documents\\UNI\\FED\\FEDAssignment1\\debtManager\\debtManager\\debtManager.csproj",
       "projectName": "debtManager",
-      "projectPath": "\\\\wsl.localhost\\Ubuntu\\home\\morten\\Documents\\University\\Front-End-Development\\FEDAssignment1\\debtManager\\debtManager\\debtManager.csproj",
-      "packagesPath": "C:\\Users\\UniquesKernel\\.nuget\\packages\\",
-      "outputPath": "\\\\wsl.localhost\\Ubuntu\\home\\morten\\Documents\\University\\Front-End-Development\\FEDAssignment1\\debtManager\\debtManager\\obj\\",
+      "projectPath": "D:\\Sune\\Documents\\UNI\\FED\\FEDAssignment1\\debtManager\\debtManager\\debtManager.csproj",
+      "packagesPath": "C:\\Users\\Sune\\.nuget\\packages\\",
+      "outputPath": "D:\\Sune\\Documents\\UNI\\FED\\FEDAssignment1\\debtManager\\debtManager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\UniquesKernel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sune\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

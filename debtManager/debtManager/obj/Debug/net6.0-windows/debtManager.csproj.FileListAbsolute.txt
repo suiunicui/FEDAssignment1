@@ -84,3 +84,5 @@ D:\Sune\Documents\UNI\FED\FEDAssignment1\debtManager\debtManager\obj\Debug\net6.
 \\wsl.localhost\Ubuntu\home\morten\Documents\University\Front-End-Development\FEDAssignment1\debtManager\debtManager\obj\Debug\net6.0-windows\ref\debtManager.dll
 \\wsl.localhost\Ubuntu\home\morten\Documents\University\Front-End-Development\FEDAssignment1\debtManager\debtManager\obj\Debug\net6.0-windows\debtManager.pdb
 \\wsl.localhost\Ubuntu\home\morten\Documents\University\Front-End-Development\FEDAssignment1\debtManager\debtManager\obj\Debug\net6.0-windows\debtManager.genruntimeconfig.cache
+D:\Sune\Documents\UNI\FED\FEDAssignment1\debtManager\debtManager\obj\Debug\net6.0-windows\EditDebt.g.cs
+D:\Sune\Documents\UNI\FED\FEDAssignment1\debtManager\debtManager\obj\Debug\net6.0-windows\EditDebt.baml
